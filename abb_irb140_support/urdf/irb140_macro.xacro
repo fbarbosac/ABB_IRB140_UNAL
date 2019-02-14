@@ -1,8 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:include filename="$(find abb_resources)/urdf/common_materials.xacro"/>
+
 <xacro:macro name="abb_irb140" params="prefix">
     <!-- link list -->
-    <link name="${prefix}base_link">
+  <link name="${prefix}base_link">
+    <inertial>
+        <mass value="2"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.002" ixy="0.002" ixz="0.002" iyy="0.002" iyz="0.002" izz="0.002"/>
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -22,6 +29,11 @@
     </collision>
   </link>
   <link name="${prefix}link_1">
+    <inertial>
+       <mass value="2" />
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <inertia ixx="0.002" ixy="0.002" ixz="0.002" iyy="0.002" iyz="0.002" izz="0.002"/>
+    </inertial>  
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -38,6 +50,11 @@
     </collision>
   </link>
   <link name="${prefix}link_2">
+    <inertial>
+       <mass value="2"/>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <inertia ixx="0.002" ixy="0.002" ixz="0.002" iyy="0.002" iyz="0.002" izz="0.002"/>
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="-0.07 0 -0.352"/>
       <geometry>
@@ -54,6 +71,11 @@
     </collision>
   </link>
   <link name="${prefix}link_3">
+   <inertial>
+      <mass value="2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.002" ixy="0.002" ixz="0.002" iyy="0.002" iyz="0.002" izz="0.002"/>
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="-0.07 0.065 -0.712"/>
       <geometry>
@@ -70,6 +92,11 @@
     </collision>
   </link>
   <link name="${prefix}link_4">
+    <inertial>
+      <mass value="2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.002" ixy="0.002" ixz="0.002" iyy="0.002" iyz="0.002" izz="0.002"/>
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="-0.309 0 -0.712"/>
       <geometry>
@@ -86,6 +113,11 @@
     </collision>
   </link>
   <link name="${prefix}link_5">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.002" ixy="0.002" ixz="0.002" iyy="0.002" iyz="0.002" izz="0.002"/>
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="-0.450 0 -0.712"/>
       <geometry>
@@ -102,6 +134,11 @@
     </collision>
   </link>
   <link name="${prefix}link_6">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="-0.515 0 -0.712"/>
       <geometry>
@@ -127,6 +164,7 @@
     <child link="${prefix}link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="0" lower="-3.1416" upper="3.1416" velocity="3.4907"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <joint name="joint_2" type="revolute">
     <origin rpy="0 0 0" xyz="0.070 0 0.352"/>
@@ -134,6 +172,7 @@
     <child link="${prefix}link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-1.5708" upper="1.9199" velocity="3.4907"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <joint name="joint_3" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.065 0.360"/>
@@ -141,6 +180,7 @@
     <child link="${prefix}link_3"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-4.0143" upper="0.87274434" velocity="4.5379"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <joint name="${prefix}joint_4" type="revolute">
     <origin rpy="0 0 0" xyz="0.239 0.065 0"/>
@@ -148,6 +188,7 @@
     <child link="${prefix}link_4"/>
     <axis xyz="1 0 0"/>
     <limit effort="0" lower="-3.4907" upper="3.4907" velocity="6.2832"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <joint name="${prefix}joint_5" type="revolute">
     <origin rpy="0 0 0" xyz="0.141 0 0"/>
@@ -155,6 +196,7 @@
     <child link="${prefix}link_5"/>
     <axis xyz="0 1 0"/>
     <limit effort="0" lower="-2.0071" upper="2.0071" velocity="6.2832"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <joint name="${prefix}joint_6" type="revolute">
     <origin rpy="0 0 0" xyz="0.065 0 0"/>
@@ -162,6 +204,7 @@
     <child link="${prefix}link_6"/>
     <axis xyz="1 0 0"/>
     <limit effort="0" lower="-6.9813" upper="6.9813" velocity="7.854"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <joint name="${prefix}joint_6-tool0" type="fixed">
     <parent link="${prefix}link_6"/>
