@@ -13,4 +13,4 @@ Current version supports ROS Kinetic.
    ```roslaunch abb_irb140_gazebo irb140_gazebo.launch``` 
 
 2. Launch moveit! and ensure that it is configured to run alongside Gazebo:
-```roslaunch abb_irb140_moveit_config moveit_planning_execution_gazebo.launch``` 
+```roslaunch abb_irb140_moveit_config moveit_planning_execution.launch``` 
